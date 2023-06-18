@@ -7,16 +7,17 @@ def print_menu():
           1. Открыть файл
           2. Сохранить файл
           3. Показать все заметки
-          4. Добавить заметку
-          5. Редактировать заметку
-          6. Удалить заметку
-          7. Выход''')
+          4. Показать одну заметку
+          5. Добавить заметку
+          6. Редактировать заметку
+          7. Удалить заметку
+          8. Выход''')
     while True:
         choice = input('Введите номер необходимого действия: ')
-        if choice.isdigit() and 0 < int(choice) < 8:
+        if choice.isdigit() and 0 < int(choice) < 9:
             return int(choice)
         else:
-            print('Номер действия должен быть от 1 до 7 включительно. "Давай по новой, Миша.. (с)"')
+            print('Номер действия должен быть от 1 до 8 включительно. "Давай по новой, Миша.. (с)"')
 
 while True:
     user_choice = print_menu()
@@ -31,15 +32,18 @@ while True:
             print('Показать все заметки')
             nt.show_notes()
         case 4:
+            print('Показать одну заметку')
+            nt.show_one_note()
+        case 5:
             print('Добавить заметку')
             nt.add_note()
-        case 5:
+        case 6:
             print('Редактировать заметку')
             nt.change_note()
-        case 6:
+        case 7:
             print('Удалить заметку')
             nt.delete_note()
-        case 7:
+        case 8:
             if nt.quit():
                 if True:
                     nt.save_file()

@@ -30,6 +30,20 @@ class Notes:
             for item in self.notes.items():
                 print(item)
 
+    def show_one_note(self):
+        if (len(self.notes)) == 0:
+            print('Файл не открыт либо пуст')
+        else:
+            user_info = input('Введите название заметки, которую Вы хотите посмотреть: ')
+            a = 0
+            for value in self.notes.values():
+                if value['name'] == user_info:
+                    print(value)
+                else:
+                    a = a + 1
+            if a == len(self.notes):
+                print('Такой заметки нет')
+
     def add_note(self):
             note_name = input('Введите название заметки: ')
             note_info = input('Введите заметку: ')
@@ -71,8 +85,8 @@ class Notes:
                         break
                 else:
                     a = a + 1
-                if a == (len(self.notes) - 1):
-                    print('Такой заметки нет')
+            if a == len(self.notes):
+                print('Такой заметки нет')
 
     def delete_note(self):
         if(len(self.notes)) == 0:
@@ -93,8 +107,8 @@ class Notes:
                         break
                 else:
                     a = a + 1
-                if a == (len(self.notes) - 1):
-                    print('Такой заметки нет')
+            if a == len(self.notes):
+                print('Такой заметки нет')
 
     def quit(self):
         if self.notes != self.old_notes:
